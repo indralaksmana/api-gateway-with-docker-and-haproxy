@@ -1,0 +1,276 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="x-apple-disable-message-reformatting">
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  <title>Andalin</title>
+  <style type="text/css">
+    *{
+      font-family: 'Roboto', sans-serif !important;
+      line-height: 21px !important;
+    }
+    a, a:link, a:visited{
+      text-decoration: none !important;
+      margin: 27px 0px !important;
+    }
+    a:hover {
+      text-decoration: none;
+    }
+    hr {
+      margin-top:30px;
+      border-style: solid;
+      border-width: 1px;
+      border-color: #C6424F !important;
+    }
+    p{
+      margin: 0 !important;
+      font-size: 13px !important;
+      color: #686868;
+    }
+    li{
+      margin: 10px  0 !important;
+      font-size: 14px !important;
+    }
+    .wrapper{
+      max-width:800px;
+      margin:0 auto;
+      background-color: #ffffff !important;
+      border: 1px solid #E0E0E0;
+    }
+    .wrapper__top{
+      max-width:700px;
+      width: 700px;
+      margin:0 auto;
+      background-color: #ffffff !important;
+      padding: 12.5px 0px;
+    }
+    .wrapper__container{
+      max-width:700px;
+      margin:0 auto;
+      background-color: #ffffff;
+    }
+    .wrapper__footer{
+      max-width:700px;
+      margin:0 auto; 
+      background-image: url("email-img/Group 3124.svg") !important;
+      background-color: #45619F;
+      background-size: 700px;
+      width: 700px;
+    }
+    .header__blue{
+      max-width:700px;
+      margin:0 auto;
+      background-color: #45619F !important;
+      height: 248px;
+    }
+    .button__bid{
+      height:31.8px;
+      background-color: #45619F;
+      color: #ffffff !important;
+      text-decoration: none !important;
+      font-size: 16px;
+      border-radius: 12px;
+      border: solid 2px #ffffff;
+      margin: 27px 0px;
+      cursor: pointer;
+      width: 91.7px;
+    }
+  </style>
+</head>
+<body>
+  <table class="wrapper" align="center" role="presentation" cellspacing="0" cellpadding="0">
+    <tr>
+      <td align="center">
+        <table class="wrapper__top" align="center" role="presentation" cellspacing="0" cellpadding="0" border="0">
+          <tr>
+            <td style="border-right: solid 1px #c2d3f8; width:70%; padding-left: 31px;">
+              <img width="104.1" height="24.8" src="https://andalin.com/public/assets/img/icon/andalin_logo.png" alt="">
+            </td>
+            <td style="padding-left: 22.5px;">
+              <p style="color: #45619f;font-size: 12px !important;line-height: 1.19 !important;">Simplify Your Export <br> Import with Andalin Today</p>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td align="center">
+        <table class="header__blue" align="center" role="presentation" cellspacing="0" cellpadding="0" border="0" width="700" style="background-color: #45619F !important;">
+          <tr>
+            <td align="center">
+              <img width="113.2" src="email-img/new-product.svg" alt="" style="padding-top: 43px;padding-bottom: 21.6px;">
+            </td>
+          </tr>
+          <tr>
+            <td align="center">
+              <p style="color:#ffffff;font-size: 25px !important; padding-bottom: 9px;">Congratulation!</p>
+              <p style="color:#ffffff;font-size: 15px !important; padding-bottom: 18.5px;">Your Bidding for This Following Contract Number Has Been Accepted</p>
+              <p style="color: #ffffff;font-size: 12px !important;">Contract Number:</p>
+              <h2 style="color: #ffd95a;font-size: 20px; padding-bottom: 18px;font-weight: 100;margin: 0;">{{message.body.bidInfo.contract_number}}</h2>
+              <!-- <p style="color: #ffffff;font-size: 15px !important;">Do You Still Want to Process Your Bid?</p> -->
+            </td>
+          </tr>
+          <tr>
+            <td align="center">
+              <a href="http://vendor.andalin.com/" target="_blank"
+                style="height:45px;
+                background-color: #C6424F;
+                color: #ffffff !important;
+                text-decoration: none !important;
+                font-size: 15px;
+                padding: 12px 62px;
+                border-radius: 12px;">Check Contract
+            </a>
+              <!-- <button class="button__bid" style="margin-left:30.3px;">No</button> -->
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td align="center">
+        <!-- <table class="wrapper__container" align="center" role="presentation" cellspacing="0" cellpadding="0" border="0" width="80%">
+          <tr>
+            <td>
+              <h5 style="margin-top:24px;margin-bottom: 11px;color:#686868;font-size: 15px;font-weight: bold">Customer Detail Contract:</h5>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>Contract Validity Date</p>
+            </td>
+            <td>
+              <p>: 23/07/2019</p>
+            </td>
+          </tr>
+          <tr>
+            <td><p>Name</p></td>
+            <td><p>: Admin Logitech</p></td>
+          </tr>
+          <tr>
+            <td style="padding-bottom:20px;"><p>Company Name</p></td>
+            <td style="padding-bottom:20px;"><p>: Logitech</p></td>
+          </tr>
+          <tr>
+            <td><p>Pick Up Date</p></td>
+            <td><p>: 15/07/2019</p></td>
+          </tr>
+          <tr>
+            <td><p>Origin Country</p></td>
+            <td><p>: Indonesia</p></td>
+          </tr>
+          <tr>
+            <td><p>Origin City</p></td>
+            <td><p>: Jakarta</p></td>
+          </tr>
+          <tr>
+            <td><p>Service Type</p></td>
+            <td><p>: Port to Door</p></td>
+          </tr>
+          <tr>
+            <td><p>Destination Country</p></td>
+            <td><p>: Singapore</p></td>
+          </tr>
+          <tr>
+            <td><p>Destination City</p></td>
+            <td><p>: Singapore</p></td>
+          </tr>
+          <tr>
+            <td><p>Ideal Budget</p></td>
+            <td><p>: IDR 2,000,000 - IDR 5,000,000</p></td>
+          </tr>
+          <tr>
+            <td style="padding-bottom:20px;"><p>Terms of Payment</p></td>
+            <td style="padding-bottom:20px;"><p>: 7 Days</p></td>
+          </tr>
+          <tr>
+            <td><p>Freight Mode</p></td>
+            <td><p>: Ocean</p></td>
+          </tr>
+          <tr>
+            <td><p>Shipment Type</p></td>
+            <td><p>: FCL 40ft, Reefer</p></td>
+          </tr>
+          <tr>
+            <td><p>Temperature</p></td>
+            <td><p>: 5'C</p></td>
+          </tr>
+          <tr>
+            <td><p>Total Container</p></td>
+            <td><p>: 10</p></td>
+          </tr>
+          <tr>
+            <td><p>Estimate Container/Month</p></td>
+            <td><p>: 2</p></td>
+          </tr>
+          <tr>
+            <td style="padding-bottom:20px;"><p>Total Shipment</p></td>
+            <td style="padding-bottom:20px;"><p>: 5</p></td>
+          </tr>
+          <tr>
+            <td><p>Product Type</p></td>
+            <td><p>: General Cargo</p></td>
+          </tr>
+          <tr>
+            <td><p>HS Code</p></td>
+            <td><p>: 12345</p></td>
+          </tr>
+          <tr>
+            <td><p>Type of Goods</p></td>
+            <td><p>: Machinery and Spareparts</p></td>
+          </tr>
+          <tr>
+            <td><p>Value of Goods</p></td>
+            <td><p>: IDR 20,000,000</p></td>
+          </tr>
+          <tr>
+            <td style="padding-bottom:20px;"><p>Product Description</p></td>
+            <td style="padding-bottom:20px;"><p>: Screw, Iron Pig etc</p></td>
+          </tr>
+          <tr>
+            <td><p>Additional Options</p></td>
+            <td><p>: Insurance, Destination Customs Clearance</p></td>
+          </tr>
+          <tr>
+            <td style="padding-bottom:20.4px;"><p>Notes from Merchant</p></td>
+            <td style="padding-bottom:20.4px;"><p>: Blablabla 123</p></td>
+          </tr>
+          <tr>
+            <td align="center" colspan="2">
+              <p style="color: #45619f;font-size: 12px !important; padding-bottom: 28.4px;">*Please find this email attachment to see your previous detail bidding</p>
+            </td>
+          </tr>
+        </table> -->
+      </td>
+    </tr>
+    <tr>
+      <table class="wrapper__footer" align="center" role="presentation" cellspacing="0" cellpadding="0" border="0">
+        <tr>
+          <td align="right" style="padding-right: 19.2px;padding-top: 32.6px;padding-bottom: 17.4px;">
+            <img src="https://andalin.com/public/assets/img/email-img/Group-3121.svg" alt=""> 
+          </td>
+          <td align="left" style="padding-left: 19.2px;">
+            <p style="color: #ffffff !important;font-size: 14px;font-weight: bold;">Contact Our Sales</p>
+            <p style="color: #ffffff !important;">021-50986008</p>
+            <p style="color: #ffffff !important; text-decoration: none;">sales@andalin.com</p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2" align="center">
+            <p style="font-size: 12px !important; text-decoration: none;color: #ffffff !important;">Andalin - PT Eximku Teknologi Indonesia</p>
+            <p style="font-size: 12px !important; text-decoration: none;color: #ffffff !important;">Satrio Tower Floor 16, Mega Kuningan, Jl. Professor Doktor Satrio Blok C4</p>
+            <p style="font-size: 12px !important; text-decoration: none;color: #ffffff !important;">No.5, Kuningan Timur, Jakarta Selatan, 12950</p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2" align="center" style="padding-top:10px; padding-bottom:20px;">
+            <p style="font-size: 12px !important;color: #ffffff;">© 2019 PT Andalin - All Rights Reserved</p>
+          </td>
+        </tr>
+      </table>
+    </tr>
+  </table>
+</body>
+</html>

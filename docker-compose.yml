@@ -1,0 +1,46 @@
+version: "3"
+
+services:
+  reverse_proxy:
+    image: haproxy:2.0.2
+    container_name: reverse_proxy
+    build:
+      context: conf/haproxy
+      dockerfile: ./docker/Dockerfile
+    volumes:
+      - ./conf/haproxy:/usr/local/etc/haproxy
+    networks:
+      - webgateway
+    ports:
+      - 80:80
+      - 443:443
+      - 8080:8080
+    depends_on:
+      - api_gateway
+      - user_api
+
+  api_gateway:
+    build:
+      context: gateway
+      dockerfile: ./docker/dev/Dockerfile
+    container_name: api_gateway
+    ports:
+      - "4000:4000"
+    networks:
+      - webgateway
+    restart: always
+
+  user_api:
+    build:
+      context: user
+      dockerfile: ./docker/dev/Dockerfile
+    container_name: user_api
+    ports:
+      - "4001:4001"
+    networks:
+      - webgateway
+    restart: always
+
+networks:
+  webgateway:
+    external: true

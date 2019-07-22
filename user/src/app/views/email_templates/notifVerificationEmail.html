@@ -1,0 +1,138 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <!-- utf-8 works for most cases -->
+  <meta name="viewport" content="width=device-width">
+  <!-- Forcing initial-scale shouldn't be necessary -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <!-- Use the latest (edge) version of IE rendering engine -->
+  <meta name="x-apple-disable-message-reformatting">
+  <!-- Disable auto-scale in iOS 10 Mail entirely -->
+  <title></title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link href="https://andalin.com/public/assets/css/mail.css" rel="stylesheet">
+  <!-- The title tag shows in email notifications, like Android 4.4. -->
+
+  <!-- Web Font / @font-face : BEGIN -->
+  <!-- NOTE: If web fonts are not required, lines 10 - 27 can be safely removed. -->
+
+  <!-- All other clients get the webfont reference; some will render the font and others will silently fail to the fallbacks. More on that here: http://stylecampaign.com/blog/2015/02/webfont-support-in-email/ -->
+  <!--[if !mso]><!-->
+  <!-- insert web font reference, eg: <link href='https://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet' type='text/css'> -->
+  <!--<![endif] -->
+
+  <!-- Web Font / @font-face : END -->
+
+  <!-- What it does: Makes background images in 72ppi Outlook render at correct size. -->
+  <!--[if gte mso 9]>
+  <xml>
+    <o:OfficeDocumentSettings>
+      <o:AllowPNG/>
+      <o:PixelsPerInch>96</o:PixelsPerInch>
+    </o:OfficeDocumentSettings>
+  </xml>
+  <![endif]-->
+  <!--[if (gte mso 9)|(IE)]><style type="text/css">
+body, table, td, a, p {font-family: 'Roboto', sans-serif; !important; font-size: 12px; font-weight: 300;}
+</style><![endif]-->
+
+</head>
+
+<body>
+  <!-- Visually Hidden Preheader Text : BEGIN -->
+  <div style="display:none;font-size:1px;line-height:1px;max-height:0px;max-width:0px;opacity:0;overflow:hidden;mso-hide:all;font-family: sans-serif;">
+    (Optional) This text will appear in the inbox preview, but not the email body.
+  </div>
+  <!-- Visually Hidden Preheader Text : END -->
+
+  <!--
+          Set the email width. Defined in two places:
+          1. max-width for all clients except Desktop Windows Outlook, allowing the email to squish on narrow but never go wider than 600px.
+          2. MSO tags for Desktop Windows Outlook enforce a 600px width.
+      -->
+  <div class="email-container">
+    <!--[if mso]>
+    <table role="presentation" aria-hidden="true" cellspacing="0" cellpadding="0" border="0" width="600" align="center">
+      <tr>
+        <td>
+    <![endif]-->
+
+    <!-- Email Body : BEGIN -->
+    <div class="box">
+
+      <!-- Hero Image, Flush : BEGIN -->
+      <div class="logo">
+        <img src="http://andalin.com/public/assets/img/icon/andalin-logo.png" aria-hidden="true"
+             class="g-img">
+      </div>
+      <!-- Hero Image, Flush : END -->
+
+      <!-- Hero Image, Flush : BEGIN -->
+      <div>
+        <img src="http://andalin.com/public/assets/img/icon/mail-party.png" aria-hidden="true"
+             class="title-img">
+        <div class="title-email"><div>Hello! {{message.body.info}}</div>
+      </div>
+      <!-- Hero Image, Flush : END -->
+      <!-- <br><br> -->
+      <!-- <div class="clearfix"> 
+        <div class="subtitle-email">RFQ number : {{message.body.bidInfo.rfqno}}</div>
+      </div>
+ -->
+      <!-- 1 Column Text + Button : BEGIN -->
+
+        <div>
+          <a class="button_blue" href="http://marketplace.andalin.com">
+            <span style="color: #ffffff">Login</span>
+          </a>
+        </div>
+
+      <!-- 1 Column Text + Button : END -->
+    </div>
+    <!-- Email Body : END -->
+    <div class="call-center">
+      <!-- <img src="http://andalin.com/public/assets/img/icon/andalin-footer.png" aria-hidden="true"> -->
+      <div class="bg__footer col">
+        <div class="row">
+          <div class="col-md-3 text-center m-auto bg__footer__headset">
+            <img src="http://andalin.com/public/assets/img/icon/footer-andalin-headset.svg" alt="">
+          </div>
+          <div class="col-md-5 m-auto bg__footer__text">
+              <div>
+                Hubungi Customer Service
+              </div>
+              <div>
+                021-50986008
+              </div>
+              <div>
+                sales@andalin.com
+              </div>
+          </div>
+          <div class="col-md-4 nopadding text-right bg__footer__cs">
+            <img src="http://andalin.com/public/assets/img/icon/footer-andalin-cs.svg" alt="">
+          </div>
+          <div class="col-md-4 nopadding text-right bg__footer__cs__small">
+            <img src="http://andalin.com/public/assets/img/icon/footer-andalin-cs-small.svg" alt="">
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Email Footer : BEGIN -->
+    <div style="padding: 40px 5px;width: 100%;font-size: 12px; font-family: 'Roboto', sans-serif; line-height:18px; text-align: center; color: #828282;" class="x-gmail-data-detectors">
+          {{sender.name}}<br>{{sender.address}}<br>
+          <!-- {{sender.phone}} -->
+    </div>
+    <!-- Email Footer : END -->
+
+    <!--[if mso]>
+    </td>
+    </tr>
+    </table>
+    <![endif]-->
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,273 @@
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+  	<meta http-equiv="X-UA-Compatible" content="IE=edge"> <!-- Use the latest (edge) version of IE rendering engine -->
+  	<meta name="x-apple-disable-message-reformatting">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <title>Andalin</title>
+    <style type="text/css">
+      *{
+  			 font-family: 'Roboto', sans-serif !important;
+  			 line-height: 21px !important;
+  		}
+      a, a:link, a:visited{
+        text-decoration: none !important;
+      }
+      a:hover {
+        text-decoration: none;
+      }
+      hr {
+        margin-top: 20px;
+        margin-bottom: 20px;
+        border-style: solid;
+        border-width: 1px;
+        border-color: #C6424F !important;
+      }
+      p{
+        margin: 0 !important;
+        font-size: 14px !important;
+      }
+      .wrapper{
+  		  max-width:800px;
+  		  margin:0 auto;
+  			background-color: #ffffff !important;
+  			border: 1px solid #E0E0E0;
+  		}
+      .wrapper__container{
+        max-width:700px;
+  		  margin:0 auto;
+        background-color: #ffffff;
+      }
+      .wrapper__contact{
+        max-width:210px;
+  		  margin:0 auto;
+      }
+      .header__blue{
+        max-width:700px;
+  		  margin:0 auto;
+        background-color: #45619F !important;
+        height: 248px;
+      }
+      .setfont__red{
+        color: #C6424F !important;
+        font-weight:400;
+        text-decoration: none !important;
+      }
+    </style>
+  </head>
+  <body>
+    <table class="wrapper" align="center" role="presentation" cellspacing="0" cellpadding="0" border="0" width="800" style="border: 1px solid #E0E0E0;">
+      <tr>
+        <td align="center" height="70">
+          <img width="158" src="http://andalin.com/public/assets/img/icon/andalin_logo.png" alt="">
+        </td>
+      </tr>
+      <tr>
+        <td align="center">
+          <table class="header__blue" align="center" role="presentation" cellspacing="0" cellpadding="0" border="0" width="700" style="background-color: #45619F !important;">
+            <tr>
+              <td align="center">
+                <img width="80" src="http://andalin.com/public/assets/img/icon//email-12.png" alt="">
+              </td>
+            </tr>
+            <tr>
+              <td align="center">
+                <h1 style="color: #ffffff;font-weight:600;">New Request Quotation</h1>
+                <h4 style="color: #ffffff;font-weight:400;">A new RFQ from {{message.body.userInfo.customer_company}} <br>
+                  RFQ Number : <span>{{message.body.userInfo.rfqnumber}}</span></h4>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      <tr>
+        <td align="center">
+          <table class="wrapper__container" align="center" role="presentation" cellspacing="0" cellpadding="0" border="0" width="60%">
+            <tr>
+              <td colspan="2">
+                <p style="padding-top:20px; padding-bottom:20px;"><b>Request For Quotation Detail</b></p>
+              </td>
+            </tr>
+            <tr>
+              <td width="50%"><p>Validity Date</p></td>
+              <td width="50%"><p>: {{message.body.userInfo.validity_date}}</p></td>
+            </tr>
+            <tr>
+              <td width="50%"><p>Request Name</p></td>
+              <td width="50%"><p>: {{message.body.userInfo.customer_name}}</p></td>
+            </tr>
+            <tr>
+              <td width="50%"><p>Company Name</p></td>
+              <td width="50%"><p>: {{message.body.userInfo.customer_company}}</p></td>
+            </tr>
+
+            <tr>
+              <td colspan="2" align="center">
+                <hr width="50%">
+              </td>
+            </tr>
+
+             <tr>
+              <td width="50%"><p>Shipment Date</p></td>
+              <td width="50%"><p>: {{message.body.userInfo.shipment_date}}</p></td>
+            </tr>
+            <tr>
+              <td width="50%"><p>Shipment Service</p></td>
+              <td width="50%"><p>: {{message.body.userInfo.optiontp}}</p></td>
+            </tr>
+            <tr>
+              <td width="50%"><p>Shipment Type</p></td>
+              <td width="50%"><p>: {{message.body.userInfo.shipment_type}}</p></td>
+            </tr>
+             <tr>
+              <td width="50%"><p>Freight Mode</p></td>
+              <td width="50%"><p>: {{message.body.userInfo.service_head}}</p></td>
+            </tr>
+            <tr>
+              <td width="50%"><p>Origin Country</p></td>
+              <td width="50%"><p>: {{message.body.userInfo.countryf}}</p></td>
+            </tr>
+            <tr>
+              <td width="50%"><p>Origin City</p></td>
+              <td width="50%"><p>: {{message.body.userInfo.cityf}}</p></td>
+            </tr>
+            {{#message.body.userInfo.pickup_address_show}}
+            <tr>
+              <td width="50%"><p>Pickup Address</p></td>
+              <td width="50%"><p>: {{message.body.userInfo.pickup_address}}</p></td>
+            </tr>
+            {{/message.body.userInfo.pickup_address_show}}
+            <tr>
+              <td width="50%"><p>Destination Country</p></td>
+              <td width="50%"><p>: {{message.body.userInfo.countryt}}</p></td>
+            </tr>
+            <tr>
+              <td width="50%"><p>Destination City</p></td>
+              <td width="50%"><p>: {{message.body.userInfo.cityt}}</p></td>
+            </tr>
+            {{#message.body.userInfo.delivery_address_show}}
+            <tr>
+              <td width="50%"><p>Delivery Address</p></td>
+              <td width="50%"><p>: {{message.body.userInfo.delivery_address}}</p></td>
+            </tr>
+            {{/message.body.userInfo.delivery_address_show}}
+            <tr>
+              <td colspan="2" align="center">
+                <hr width="50%">
+              </td>
+            </tr>
+
+             <tr>
+              <td width="50%"><p>Product type</p></td>
+              <td width="50%"><p>: {{message.body.userInfo.product_class}}</p></td>
+            </tr>
+            <tr>
+              <td width="50%"><p>Kind of Goods</p></td>
+              <td width="50%"><p>: {{message.body.userInfo.product_type}}</p></td>
+            </tr>
+            <tr>
+              <td width="50%"><p>Value of Goods</p></td>
+              <td width="50%"><p>: {{message.body.userInfo.total_price}}</p></td>
+            </tr>
+            <tr>
+              <td width="50%"><p>HS Code	</p></td>
+              <td width="50%"><p>: {{message.body.userInfo.hs_code}}</p></td>
+            </tr>
+            <tr>
+              <td width="50%"><p>Product Description</p></td>
+              <td width="50%"><p>: {{message.body.userInfo.description}}</p></td>
+            </tr>
+            <tr>
+              <td width="50%"><p>Quantity</p></td>
+              <td width="50%"><p>: {{message.body.userInfo.estimatedqty}} {{message.body.userInfo.satuan}}</p></td>
+            </tr>
+            <tr>
+              <td width="50%"><p>Weight</p></td>
+              <td width="50%"><p>: {{message.body.userInfo.estimatedweight}} Kg</p></td>
+            </tr>
+            <tr>
+              <td width="50%"><p>Volume</p></td>
+              <td width="50%"><p>: {{message.body.length}}x{{message.body.width}}x{{message.body.height}} cm</p></td>
+            </tr>
+
+            <tr>
+              <td colspan="2" align="center">
+                <hr width="50%">
+              </td>
+            </tr>
+            <tr>
+              <td width="50%"><p>Ideal Budget</p></td>
+              <td width="50%"><p>: {{message.body.userInfo.request_rate}} - {{message.body.userInfo.request_rate_to}}</p></td>
+            </tr>
+            <tr>
+              <td width="50%"><p>Term of Payment</p></td>
+              <td width="50%"><p>: {{message.body.userInfo.payment_references}} days</p></td>
+            </tr>
+            <tr>
+              <td width="50%"><p>Additional Options</p></td>
+              <td width="50%"><p>: -</p></td>
+            </tr>
+            <tr>
+              <td width="50%"><p>Note for Merchant</p></td>
+              <td width="50%"><p>: {{message.body.userInfo.note_for_merchant}}</p></td>
+            </tr>
+
+            <tr>
+              <td colspan="2" align="center" height="100">
+                <a href="http://customer.andalin.com/" target="_blank"
+                   style="height:45px;
+                   background-color: #C6424F;
+                   color: #ffffff !important;
+                   text-decoration: none !important;
+                   font-size: 15px;
+                   padding: 12px 62px;
+                   border-radius: 12px;">Check Order
+                </a>
+              </td>
+            </tr>
+
+            <tr>
+              <td colspan="2" align="center">
+                <hr>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="2">
+                <table class="wrapper__contact" align="center" role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                  <tr>
+                    <td align="center">
+                      <p class="setfont__red" style="color:#C6424F;">Hubungi Customer Service</p>
+                      <a href="tel:02150986008" class="setfont__red" style="color:#C6424F; text-decoration: none; font-size:14px">
+                        021-50986008
+                      </a>
+                      <a href="mailto:sales@andalin.com" class="setfont__red" style="color:#C6424F; text-decoration: underline; font-size:14px">
+                        sales@andalin.com
+                      </a>
+                    </td>
+                    <td>
+                      <img width="40" src="https://andalin.com/public/assets/img/icon/icon-call.png" alt="">
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="2" align="center" style="padding-top:20px;">
+                <p style="font-size: 12px !important;color: #707070;font-weight:400;">Andalin - PT. EXIMKU TEKNOLOGI INDONESIA</p>
+                <p style="font-size: 12px !important;color: #707070;font-weight:400;">Satrio Tower, Lantai 16</p>
+                <p style="font-size: 12px !important;color: #707070;font-weight:400;">Jl. Prof. DR. Satrio Blok C4 No. 5, Kuningan, Setiabudi, Jakarta Selatan, DKI Jakarta 12950</p>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="2" align="center" style="padding-top:10px; padding-bottom:20px;">
+                <p style="font-size: 12px !important;color: #707070;font-weight:400;">About Andalin | Term Of Service | Privacy Policy</p>
+                <p style="font-size: 12px !important;color: #707070;font-weight:400;">© 2019 All Rights Reserved</p>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>

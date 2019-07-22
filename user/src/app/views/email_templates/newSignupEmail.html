@@ -1,0 +1,169 @@
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+  	<meta http-equiv="X-UA-Compatible" content="IE=edge"> <!-- Use the latest (edge) version of IE rendering engine -->
+  	<meta name="x-apple-disable-message-reformatting">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <title>Andalin</title>
+    <style type="text/css">
+      *{
+  			 font-family: 'Roboto', sans-serif !important;
+  			 line-height: 21px !important;
+  		}
+      a, a:link, a:visited{
+        text-decoration: none !important;
+      }
+      a:hover {
+        text-decoration: none;
+      }
+      hr {
+        margin-bottom: 20px;
+        border-style: solid;
+        border-width: 1px;
+        border-color: #C6424F !important;
+      }
+      p{
+        margin: 0 !important;
+        font-size: 14px !important;
+      }
+      .wrapper{
+  		  max-width:800px;
+  		  margin:0 auto;
+  			background-color: #ffffff !important;
+  			border: 1px solid #E0E0E0;
+  		}
+      .wrapper__container{
+        max-width:700px;
+  		  margin:0 auto;
+        background-color: #ffffff;
+      }
+      .wrapper__contact{
+        max-width:210px;
+  		  margin:0 auto;
+      }
+      .header__blue{
+        max-width:700px;
+  		  margin:0 auto;
+        background-color: #45619F !important;
+        height: 248px;
+      }
+      .setfont__red{
+        color: #C6424F !important;
+        font-weight:400;
+        text-decoration: none !important;
+      }
+    </style>
+  </head>
+  <body>
+    <table class="wrapper" align="center" role="presentation" cellspacing="0" cellpadding="0" border="0" width="800" style="border: 1px solid #E0E0E0;">
+      <tr>
+        <td align="center" height="70">
+          <img width="158" src="https://andalin.com/public/assets/img/icon/andalin_logo.png" alt="">
+        </td>
+      </tr>
+      <tr>
+        <td align="center">
+          <table class="header__blue" align="center" role="presentation" cellspacing="0" cellpadding="0" border="0" width="700" style="background-color: #45619F !important;">
+            <tr>
+              <td align="center">
+                <img width="80" src="https://andalin.com/public/assets/img/icon/email-11.png" alt="">
+              </td>
+            </tr>
+            <tr>
+              <td align="center">
+                <h1 style="color: #ffffff;font-weight:600;">Hello !</h1>
+                <h4 style="color: #ffffff;font-weight:400;">
+                  There is New Registration from {{message.body.userInfo.companyName}}
+                </h4>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      <tr>
+        <td align="center">
+          <table style="margin-top:30px;" class="wrapper__container" align="center" role="presentation" cellspacing="0" cellpadding="0" border="0" width="60%">
+            <tr>
+              <td width="50%"><p>Name</p></td>
+              <td width="50%"><p>: {{message.body.userInfo.fullName}}</p></td>
+            </tr>
+            <tr>
+              <td width="50%"><p>Company</p></td>
+              <td width="50%"><p>: {{message.body.userInfo.companyName}}</p></td>
+            </tr>
+            <tr>
+              <td width="50%"><p>Username</p></td>
+              <td width="50%"><p>: {{message.body.userInfo.userEmail}}</p></td>
+            </tr>
+            <tr>
+              <td width="50%"><p>Date</p></td>
+              <td width="50%"><p>: {{message.body.userInfo.created_at}}</p></td>
+            </tr>
+            <tr>
+              <td width="50%"><p>Company Address</p></td>
+              <td width="50%"><p>: {{message.body.userInfo.companyAddress}}</p></td>
+            </tr>
+            <tr>
+              <td width="50%"><p>User Phone</p></td>
+              <td width="50%"><p>: {{message.body.userInfo.userPhone}}</p></td>
+            </tr>
+
+            <tr>
+              <td colspan="2" align="center" height="100">
+                <a href="http://customer.andalin.com/" target="_blank"
+                   style="height:45px;
+                   background-color: #C6424F;
+                   color: #ffffff !important;
+                   text-decoration: none !important;
+                   font-size: 15px;
+                   padding: 12px 62px;
+                   border-radius: 12px;">Check Account
+                </a>
+              </td>
+            </tr>
+
+            <tr>
+              <td colspan="2" align="center">
+                <hr>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="2">
+                <table class="wrapper__contact" align="center" role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                  <tr>
+                    <td align="center">
+                      <p class="setfont__red" style="color:#C6424F;">Hubungi Customer Service</p>
+                      <a href="tel:02150986008" class="setfont__red" style="color:#C6424F; text-decoration: none; font-size:14px">
+                        021-50986008
+                      </a>
+                      <a href="mailto:sales@andalin.com" class="setfont__red" style="color:#C6424F; text-decoration: underline; font-size:14px">
+                        sales@andalin.com
+                      </a>
+                    </td>
+                    <td>
+                      <img width="40" src="https://andalin.com/public/assets/img/icon/icon-call.png" alt="">
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="2" align="center" style="padding-top:20px;">
+                <p style="font-size: 12px !important;color: #707070;font-weight:400;">Andalin - PT. EXIMKU TEKNOLOGI INDONESIA</p>
+                <p style="font-size: 12px !important;color: #707070;font-weight:400;">Satrio Tower, Lantai 16</p>
+                <p style="font-size: 12px !important;color: #707070;font-weight:400;">Jl. Prof. DR. Satrio Blok C4 No. 5, Kuningan, Setiabudi, Jakarta Selatan, DKI Jakarta 12950</p>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="2" align="center" style="padding-top:10px; padding-bottom:20px;">
+                <p style="font-size: 12px !important;color: #707070;font-weight:400;">About Andalin | Term Of Service | Privacy Policy</p>
+                <p style="font-size: 12px !important;color: #707070;font-weight:400;">© 2019 All Rights Reserved</p>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>

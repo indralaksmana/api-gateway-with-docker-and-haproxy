@@ -1,0 +1,577 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <!-- utf-8 works for most cases -->
+  <meta name="viewport" content="width=device-width">
+  <!-- Forcing initial-scale shouldn't be necessary -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <!-- Use the latest (edge) version of IE rendering engine -->
+  <meta name="x-apple-disable-message-reformatting">
+  <!-- Disable auto-scale in iOS 10 Mail entirely -->
+  <title></title>
+  <!-- The title tag shows in email notifications, like Android 4.4. -->
+
+  <!-- Web Font / @font-face : BEGIN -->
+  <!-- NOTE: If web fonts are not required, lines 10 - 27 can be safely removed. -->
+
+  <!-- Desktop Outlook chokes on web font references and defaults to Times New Roman, so we force a safe fallback font. -->
+  <!--[if mso]>
+  <style>
+    * {
+      font-family: sans-serif !important;
+    }
+  </style>
+  <![endif]-->
+
+  <!-- All other clients get the webfont reference; some will render the font and others will silently fail to the fallbacks. More on that here: http://stylecampaign.com/blog/2015/02/webfont-support-in-email/ -->
+  <!--[if !mso]><!-->
+  <!-- insert web font reference, eg: <link href='https://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet' type='text/css'> -->
+  <!--<![endif]-->
+
+  <!-- Web Font / @font-face : END -->
+
+  <!-- CSS Reset -->
+  <style>
+    /* What it does: Remove spaces around the email design added by some email clients. */
+    /* Beware: It can remove the padding / margin and add a background color to the compose a reply window. */
+    @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro');
+
+    html,
+    body {
+      margin: 0 auto !important;
+      padding: 0 !important;
+      height: 100% !important;
+      width: 100% !important;
+    }
+    /* What it does: Stops email clients resizing small text. */
+
+    * {
+      -ms-text-size-adjust: 100%;
+      -webkit-text-size-adjust: 100%;
+    }
+    /* What it does: Centers email on Android 4.4 */
+
+    div[style*="margin: 16px 0"] {
+      margin: 0 !important;
+    }
+    /* What it does: Stops Outlook from adding extra spacing to tables. */
+
+    table,
+    td {
+      mso-table-lspace: 0pt !important;
+      mso-table-rspace: 0pt !important;
+    }
+    /* What it does: Fixes webkit padding issue. Fix for Yahoo mail table alignment bug. Applies table-layout to the first 2 tables then removes for anything nested deeper. */
+
+    table {
+      border-spacing: 0 !important;
+      border-collapse: collapse !important;
+      /*table-layout: fixed !important;*/
+      margin: 0 auto !important;
+      max-width: 700px;
+    }
+
+    table table table {
+      table-layout: auto;
+    }
+    /* What it does: Uses a better rendering method when resizing images in IE. */
+
+    img {
+      -ms-interpolation-mode: bicubic;
+    }
+    /* What it does: A work-around for iOS meddling in triggered links. */
+
+    *[x-apple-data-detectors] {
+      color: inherit !important;
+      text-decoration: none !important;
+    }
+    /* What it does: A work-around for Gmail meddling in triggered links. */
+
+    .x-gmail-data-detectors,
+    .x-gmail-data-detectors *,
+    .aBn {
+      border-bottom: 0 !important;
+      cursor: default !important;
+    }
+    /* What it does: Prevents Gmail from displaying an download button on large, non-linked images. */
+
+    .a6S {
+      display: none !important;
+      opacity: 0.01 !important;
+    }
+    /* If the above doesn't work, add a .g-img class to any image in question. */
+
+    img.g-img+div {
+      display: none !important;
+    }
+    .g-img {
+      margin-left: 51px; 
+      margin-top: 25px;
+    }
+    /* What it does: Prevents underlining the button text in Windows 10 */
+
+    .button-link {
+      text-decoration: none !important;
+    }
+    /* What it does: Removes right gutter in Gmail iOS app: https://github.com/TedGoas/Cerberus/issues/89  */
+    /* Create one of these media queries for each additional viewport size you'd like to fix */
+    /* Thanks to Eric Lepetit (@ericlepetitsf) for help troubleshooting */
+
+    @media only screen and (min-device-width: 375px) and (max-device-width: 413px) {
+      /* iPhone 6 and 6+ */
+      .email-container {
+        min-width: 290px !important;
+      }
+    }
+
+    .email-container {
+      max-width: 700px; 
+      margin: auto; 
+      background-color: #ffffff;
+    }
+
+    .title-img {
+      width: 61.5px;
+      height: 86.3px;
+      object-fit: contain;
+      margin-left: 51px; 
+      margin-top: 22.6px;
+      float: left;
+      padding-right: 23.5px;
+    }
+
+    .title-email {
+      margin-top: 22.8px;
+      width: 586px;
+      height: 53px;
+      font-family: "Source Sans Pro";
+      font-size: 37px;
+      font-weight: normal;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: 1.41;
+      letter-spacing: normal;
+      text-align: left;
+      color: #191919;
+    }
+
+    .subtitle-email {
+      /*width: 586px;*/
+      height: 38px;
+      font-family: "Source Sans Pro";
+      font-size: 22px;
+      font-weight: normal;
+      font-style: normal;
+      font-stretch: normal;
+      /*line-height: 2.36;*/
+      letter-spacing: normal;
+      text-align: left;
+      color: #5d89ee;
+    }
+
+    .header-email {
+      padding: 37.9px 0px 10px 40px;  
+      height: 37px;
+      font-family: "Source Sans Pro";
+      font-size: 22px;
+      font-weight: 600;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: 1.27;
+      letter-spacing: normal;
+      text-align: left;
+      color: #191919;
+    }
+
+    .detail-email {
+      font-family: "Source Sans Pro";
+      font-size: 22px;
+      font-weight: normal;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: 1.27;
+      letter-spacing: normal;
+      text-align: left;
+      color: #828282;
+    }
+
+    .detail-email > td {
+      padding:0 40px;
+    }
+  </style>
+
+  <!-- What it does: Makes background images in 72ppi Outlook render at correct size. -->
+  <!--[if gte mso 9]>
+  <xml>
+    <o:OfficeDocumentSettings>
+      <o:AllowPNG/>
+      <o:PixelsPerInch>96</o:PixelsPerInch>
+    </o:OfficeDocumentSettings>
+  </xml>
+  <![endif]-->
+
+  <!-- Progressive Enhancements -->
+  <style>
+    /* What it does: Hover styles for buttons */
+
+    .button-td,
+    .button-a {
+      transition: all 100ms ease-in;
+    }
+
+    .button-td:hover,
+    .button-a:hover {
+      background: #e93e33 !important;
+      border-color: #e93e33 !important;
+    }
+    /* Media Queries */
+
+    @media screen and (max-width: 700px) {
+
+      /* What it does: Adjust typography on small screens to improve readability */
+      .email-container p {
+        font-size: 17px !important;
+        line-height: 22px !important;
+      }
+    }
+  </style>
+
+</head>
+
+<body>
+<center>
+
+  <!-- Visually Hidden Preheader Text : BEGIN -->
+  <div style="display:none;font-size:1px;line-height:1px;max-height:0px;max-width:0px;opacity:0;overflow:hidden;mso-hide:all;font-family: sans-serif;">
+    (Optional) This text will appear in the inbox preview, but not the email body.
+  </div>
+  <!-- Visually Hidden Preheader Text : END -->
+
+  <!--
+          Set the email width. Defined in two places:
+          1. max-width for all clients except Desktop Windows Outlook, allowing the email to squish on narrow but never go wider than 600px.
+          2. MSO tags for Desktop Windows Outlook enforce a 600px width.
+      -->
+  <div class="email-container">
+    <!--[if mso]>
+    <table role="presentation" aria-hidden="true" cellspacing="0" cellpadding="0" border="0" width="600" align="center">
+      <tr>
+        <td>
+    <![endif]-->
+
+    <!-- Email Body : BEGIN -->
+    <table role="presentation" aria-hidden="true" cellspacing="0" cellpadding="0" border="0" align="center" width="100%" style="border: solid 1px #dedede;">
+
+      <!-- Hero Image, Flush : BEGIN -->
+      <tr>
+        <td bgcolor="#ffffff" align="left">
+          <img src="../../public/assets/andalin-logo.png" aria-hidden="true"
+               class="g-img">
+        </td>
+      </tr>
+      <!-- Hero Image, Flush : END -->
+
+      <!-- Hero Image, Flush : BEGIN -->
+      <tr>
+        <td bgcolor="#ffffff" align="left">
+          <img src="http://159.65.6.9/public/assets/clipboard.svg" aria-hidden="true"
+               class="title-img">
+          <div class="title-email">New Request Quotation </div>
+          <div class="subtitle-email">RFQ number : {{message.body.userInfo.rfqnumber}}</div>
+        </td>
+      </tr>
+      <!-- Hero Image, Flush : END -->
+
+      <!-- 1 Column Text + Button : BEGIN -->
+      <tr>
+        <td bgcolor="#ffffff">
+          <table role="presentation" aria-hidden="true" cellspacing="0" cellpadding="0" border="0" width="100%">
+            <tr>
+              <td colspan="3" class="header-email">
+                Detail order anda :
+              </td>
+            </tr>
+            <tr class="detail-email">
+              <td>
+                Validity Date 
+              </td>
+              <td>
+                : {{message.body.userInfo.request_expired}}
+              </td>
+            </tr>
+            <tr class="detail-email">
+              <td>
+                Nomor RFQ 
+              </td>
+              <td >
+                : {{message.body.userInfo.rfqnumber}}
+              </td>
+            </tr>
+            <tr class="detail-email">
+              <td >
+                Nama 
+              </td>
+              <td colspan="2">
+                : {{message.body.userInfo.customer_name}}
+              </td>
+            </tr>
+            <tr class="detail-email">
+              <td >
+                Perusahaan 
+              </td>
+              <td colspan="2">
+                : {{message.body.userInfo.customer_company}}
+              </td>
+            </tr>
+            <tr class="detail-email">
+              <td>
+                Email :
+              </td>
+              <td colspan="2">
+                {{message.body.userInfo.customer_email}}
+              </td>
+            </tr>
+            <tr class="detail-email">
+              <td>
+                Alamat Perusahaan :
+              </td>
+              <td colspan="2">
+                {{message.body.userInfo.customer_company_address}}
+              </td>
+            </tr>
+            <tr class="detail-email">
+              <td>
+                No. Telepon :
+              </td>
+              <td colspan="2">
+                {{message.body.userInfo.customer_phone}}
+              </td>
+            </tr>
+            <tr class="detail-email">
+              <td>
+                Pengambilan:
+              </td>
+              <td colspan="2">
+                {{message.body.userInfo.pickup_from}}
+              </td>
+            </tr>
+            <tr class="detail-email">
+              <td>
+                Negara Asal:
+              </td>
+              <td colspan="2">
+                {{message.body.userInfo.country_from}}
+              </td>
+            </tr>
+            <tr class="detail-email">
+              <td>
+                Kota Asal:
+              </td>
+              <td colspan="2">
+                {{message.body.userInfo.city_from}}
+              </td>
+            </tr>
+            <tr class="detail-email">
+              <td>
+                Tangggal Kesiapan Barang:
+              </td>
+              <td colspan="2">
+                {{message.body.userInfo.cargo_readynes_date}}
+              </td>
+            </tr>
+            <tr class="detail-email">
+              <td>
+                Pengiriman:
+              </td>
+              <td colspan="2">
+                {{message.body.userInfo.deliver_to}}
+              </td>
+            </tr>
+            <tr class="detail-email">
+              <td>
+                Negara Tujuan:
+              </td>
+              <td colspan="2">
+                {{message.body.userInfo.country_to}}
+              </td>
+            </tr>
+            <tr class="detail-email">
+              <td>
+                Kota Tujuan:
+              </td>
+              <td colspan="2">
+                {{message.body.userInfo.city_to}}
+              </td>
+            </tr>
+            <tr class="detail-email">
+              <td>
+                Tipe Shipment:
+              </td>
+              <td colspan="2">
+                {{message.body.userInfo.shipment_type}}
+              </td>
+            </tr>
+            <tr class="detail-email">
+              <td>
+                Ideal Rate:
+              </td>
+              <td colspan="2">
+                {{message.body.userInfo.request_rate}} - {{message.body.userInfo.request_rate_to}}
+              </td>
+            </tr>
+            <tr class="detail-email">
+              <td>
+                Service Head:
+              </td>
+              <td colspan="2">
+                {{message.body.userInfo.service_head}}
+              </td>
+            </tr>
+            <tr class="detail-email">
+              <td>
+                Service Sub Type:
+              </td>
+              <td colspan="2">
+                {{message.body.userInfo.service_sub_type}}
+              </td>
+            </tr>
+            <tr class="detail-email">
+              <td>
+                Incoterms:
+              </td>
+              <td colspan="2">
+                {{message.body.userInfo.incoterms}}
+              </td>
+            </tr>
+            <tr class="detail-email">
+              <td>
+                Tipe Produk:
+              </td>
+              <td colspan="2">
+                {{message.body.userInfo.product_type}}
+              </td>
+            </tr>
+            <tr class="detail-email">
+              <td>
+                HS Code:
+              </td>
+              <td colspan="2">
+                {{message.body.userInfo.hs_code}}
+              </td>
+            </tr>
+            <tr class="detail-email">
+              <td>
+                Komoditas:
+              </td>
+              <td colspan="2">
+                {{message.body.userInfo.description}}
+              </td>
+            </tr>
+            <tr class="detail-email">
+              <td>
+                Estimasi Harga:
+              </td>
+              <td colspan="2">
+                {{message.body.userInfo.total_price}}
+              </td>
+            </tr>
+            <tr class="detail-email">
+              <td>
+                Estimasi Dimensi:
+              </td>
+              <td colspan="2">
+                {{message.body.userInfo.estimateddimention}} cm <sup>3</sup>
+              </td>
+            </tr>
+            <tr class="detail-email">
+              <td>
+                Estimasi Berat:
+              </td>
+              <td colspan="2">
+                {{message.body.userInfo.estimatedweight}} Kg
+              </td>
+            </tr>
+            <tr class="detail-email">
+              <td>
+                Estimasi Jumlah:
+              </td>
+              <td colspan="2">
+                {{message.body.userInfo.estimatedqty}}
+              </td>
+            </tr>
+            <tr class="detail-email">
+              <td>
+                Insurance:
+              </td>
+              <td colspan="2">
+                {{message.body.userInfo.option_insurance}}
+              </td>
+            </tr>
+            <tr class="detail-email">
+              <td>
+                Dangerous Goods:
+              </td>
+              <td colspan="2">
+                {{message.body.userInfo.option_dangerous_goods}}
+              </td>
+            </tr>
+            <tr class="detail-email">
+              <td>
+                Customs Clearance:
+              </td>
+              <td colspan="2">
+                {{message.body.userInfo.option_customs_clearance}}
+              </td>
+            </tr>
+            <tr class="detail-email">
+              <td>
+                Catatan Untuk Merchant:
+              </td>
+              <td colspan="2">
+                {{message.body.userInfo.note_for_merchant}}
+              </td>
+            </tr>
+            <tr>
+              <td colspan="3" style="padding: 40px; font-family: sans-serif; font-size: 15px; line-height: 20px; color: #555555;">
+                <p style="margin: 0; color: #ffffff; text-align: center;">{{message.footer.title}}</p>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+
+      <!-- 1 Column Text + Button : END -->
+    </table>
+    <!-- Email Body : END -->
+    <table role="presentation" aria-hidden="true" cellspacing="0" cellpadding="0" border="0" align="center" width="100%">
+      <tr>
+        <td bgcolor="#ffffff" align="left">
+          <img src="../../public/assets/andalin-footer.svg" aria-hidden="true"
+               style="padding-top: 20px">
+        </td>
+      </tr>
+    </table>
+    <!-- Email Footer : BEGIN -->
+    <table role="presentation" aria-hidden="true" cellspacing="0" cellpadding="0" border="0" align="center" width="100%">
+      <tr>
+        <td style="padding: 40px 5px;width: 100%;font-size: 12px; font-family: sans-serif; line-height:18px; text-align: center; color: #828282;" class="x-gmail-data-detectors">
+          {{sender.name}}<br>{{sender.address}}<br>{{sender.phone}}
+          <br>
+        </td>
+      </tr>
+    </table>
+    <!-- Email Footer : END -->
+
+    <!--[if mso]>
+    </td>
+    </tr>
+    </table>
+    <![endif]-->
+  </div>
+</center>
+</body>
+
+</html>
